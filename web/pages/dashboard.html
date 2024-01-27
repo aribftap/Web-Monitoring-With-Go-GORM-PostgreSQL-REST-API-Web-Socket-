@@ -1,0 +1,190 @@
+{{define "dashboard"}}
+{{template "_header"}}
+{{template "_navbar"}}
+{{template "_sidebar"}}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0">Dashboard v2</h1>
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active">Dashboard v2</li>
+          </ol>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <!-- Info boxes -->
+      <div class="row">
+        <div class="col-12 col-sm-6 col-md-3">
+          <div class="info-box">
+            <span class="info-box-icon bg-danger elevation-1"><i class="far fa-lightbulb"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">LED MERAH</span>
+              <button id="ledMerah-status-btn" class="btn bg-warning">MENUNGGU DATA</button>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-12 col-sm-6 col-md-3">
+          <div class="info-box mb-3">
+            <span class="info-box-icon bg-success elevation-1"><i class="far fa-lightbulb"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">LED HIJAU</span>
+              <button id="ledHijau-status-btn" class="btn bg-warning">MENUNGGU DATA</button>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+
+        <!-- fix for small devices only -->
+        <div class="clearfix hidden-md-up"></div>
+
+        <div class="col-12 col-sm-6 col-md-3">
+          <div class="info-box mb-3">
+            <span class="info-box-icon bg-warning elevation-1"><img src="/assets/img/track.png"
+                width="50px" height="50px" alt="railway"></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Keadaan Rel</span>
+              <button id="rel-status-btn" class="btn bg-warning">MENUNGGU DATA</button>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-12 col-sm-6 col-md-3">
+          <div class="info-box mb-3">
+            <span class="info-box-icon bg-info elevation-1"><i class="fas fa-train"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Info Kereta Yang Melintas</span>
+              <button id="kereta-status-btn" class="btn bg-warning">MENUNGGU DATA</button>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+      <div class="row">
+        <div class="col-md-6">
+          <!-- GETAR LINE CHART -->
+          <div class="card card-teal">
+            <div class="card-header">
+              <h3 class="card-title">Sensor Getar</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body bg-white">
+              <div id="chartGetar" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></div>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col (LEFT) -->
+        <div class="col-md-6">
+          <!-- GYRO ACCEL LINE CHART -->
+          <div class="card card-teal">
+            <div class="card-header">
+              <h3 class="card-title">Sensor Gyro | Accelerometer Axis X</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body bg-white">
+              <div id="chartAccelX" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></div>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col (RIGHT) -->
+        <div class="col-md-6">
+          <!-- GYRO ACCEL LINE CHART -->
+          <div class="card card-teal">
+            <div class="card-header">
+              <h3 class="card-title">Sensor Gyro | Accelerometer Axis Y</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body bg-white">
+              <div id="chartAccelY" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></div>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col (RIGHT) -->
+        <div class="col-md-6">
+          <!-- GYRO ACCEL LINE CHART -->
+          <div class="card card-teal">
+            <div class="card-header">
+              <h3 class="card-title">Sensor Gyro | Accelerometer Axis Z</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body bg-white">
+              <div id="chartAccelZ" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></div>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col (RIGHT) -->
+      </div>
+      <!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+{{template "_footer"}}
+{{end}}
