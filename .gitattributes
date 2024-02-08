@@ -1,2 +1,3 @@
+*.go linguist-vendored
 web/dist/* linguist-vendored
 web/plugins/* linguist-vendored
