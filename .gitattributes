@@ -1,3 +1,3 @@
 *.go linguist-detect=go
-web/dist/* linguist-vendored
-web/plugins/* linguist-vendored
+web/* linguist-vendored
+web/*/* linguist-vendored
